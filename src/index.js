@@ -1,4 +1,5 @@
-import http from './http';
+import './alias';
+import http from '@src/http';
 
 (async () => {
   await http.server.start();
