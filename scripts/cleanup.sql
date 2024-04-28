@@ -1,0 +1,3 @@
+DROP FUNCTION IF EXISTS update_updated_at CASCADE;
+DROP TABLE IF EXISTS users;
+

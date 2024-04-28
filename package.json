@@ -5,6 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node src/index.js",
+    "db:reset": "npm run db:cleanup && npm run db:schema && npm run db:triggers",
+    "db:schema": "export $(xargs < .env) && psql -f scripts/schema.sql $DB_CONNECTION_STRING",
+    "db:triggers": "export $(xargs < .env) && psql -f scripts/triggers.sql $DB_CONNECTION_STRING",
+    "db:cleanup": "export $(xargs < .env) && psql -f scripts/cleanup.sql $DB_CONNECTION_STRING",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
