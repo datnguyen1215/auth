@@ -7,6 +7,7 @@ const app = express();
 const server = http.createServer(app);
 
 app.use('/healthcheck', routes.healthcheck());
+app.use('/api', routes.api());
 
 const start = () => {
   return new Promise(async (resolve, reject) => {

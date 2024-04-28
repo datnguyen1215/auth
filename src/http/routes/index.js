@@ -1,2 +1,3 @@
 import healthcheck from "./healthcheck";
-export default { healthcheck };
+import api from "./api";
+export default { healthcheck, api };
