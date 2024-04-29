@@ -6,8 +6,22 @@ import settings from '../settings';
 const app = express();
 const server = http.createServer(app);
 
+app.use(express.json());
+
+app.use('*', (req, _, next) => {
+  console.log(`${req.method} ${req.originalUrl}`);
+  next();
+});
+
 app.use('/healthcheck', routes.healthcheck());
 app.use('/api', routes.api());
+
+// handle general errors when called next(err)
+app.use((err, _req, res, _next) => {
+  res
+    .status(err.status)
+    .json({ error: { code: err.code, message: err.message } });
+});
 
 const start = () => {
   return new Promise(async (resolve, reject) => {

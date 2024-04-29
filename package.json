@@ -9,7 +9,7 @@
     "db:schema": "export $(xargs < .env) && psql -f scripts/schema.sql $DB_CONNECTION_STRING",
     "db:triggers": "export $(xargs < .env) && psql -f scripts/triggers.sql $DB_CONNECTION_STRING",
     "db:cleanup": "export $(xargs < .env) && psql -f scripts/cleanup.sql $DB_CONNECTION_STRING",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require @babel/register --require src/alias.js --require dotenv/config --exit tests/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -25,9 +25,13 @@
     "@babel/core": "^7.24.4",
     "@babel/node": "^7.23.9",
     "@babel/preset-env": "^7.24.4",
+    "axios": "^1.6.8",
+    "chai": "^4.4.1",
+    "mocha": "^10.4.0",
     "nodemon": "^3.1.0"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "module-alias": "^2.2.3",

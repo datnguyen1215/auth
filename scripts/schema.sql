@@ -6,8 +6,8 @@ CREATE TYPE GENDER AS ENUM ('male', 'female');
 CREATE TABLE users (
   uuid UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   first_name TEXT NOT NULL,
-  last_name TEXT NOT NULL,
-  gender GENDER NOT NULL,
+  last_name TEXT,
+  gender GENDER,
   email TEXT NOT NULL UNIQUE,
   -- null password means the user is authenticated via a third-party service
   password TEXT,

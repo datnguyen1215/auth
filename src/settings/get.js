@@ -2,14 +2,17 @@
  * @typedef {Object} Settings
  * @property {Object} http
  * @property {number} http.port
- * @property {Object} database
- * @property {string} database.url
+ * @property {Object} db
+ * @property {string} db.url
+ * @property {Object} password
+ * @property {number} password.salt_rounds
  */
 
 /**
- * @returns {Promise<Settings>}
+ * Get settings from environment variables.
+ * @returns {Settings}
  */
-const get = async () => {
+const get = () => {
   if (!process.env.HTTP_PORT)
     throw new Error('HTTP_PORT environment variable is required');
 
@@ -22,6 +25,9 @@ const get = async () => {
     },
     db: {
       url: process.env.DB_CONNECTION_STRING
+    },
+    password: {
+      salt_rounds: parseInt(process.env.PASSWORD_SALT_ROUNDS) || 10
     }
   };
 };
