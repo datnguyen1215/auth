@@ -22,6 +22,8 @@ describe(`POST ${apiPath}`, () => {
       .post(`${baseURL}${apiPath}`, { ...DEFAULT_USER, password: undefined })
       .catch(err => err.response);
 
+    console.log(resp);
+
     expect(resp.data.error.code).to.equal(errors.codes.MISSING_FIELDS);
   });
 
