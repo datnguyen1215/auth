@@ -9,7 +9,8 @@
     "db:schema": "export $(xargs < .env) && psql -f scripts/schema.sql $DB_CONNECTION_STRING",
     "db:triggers": "export $(xargs < .env) && psql -f scripts/triggers.sql $DB_CONNECTION_STRING",
     "db:cleanup": "export $(xargs < .env) && psql -f scripts/cleanup.sql $DB_CONNECTION_STRING",
-    "test": "mocha --require @babel/register --require src/alias.js --require dotenv/config --exit tests/**/*.test.js"
+    "test": "mocha --require @babel/register --require src/alias.js --require dotenv/config --exit",
+    "test:all": "npm run test -- tests/**/*.test.js"
   },
   "repository": {
     "type": "git",
