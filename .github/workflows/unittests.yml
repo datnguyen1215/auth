@@ -51,5 +51,8 @@ jobs:
       - name: Setup database
         run: npm run db:schema && npm run db:triggers
 
+      - name: Run server
+        run: npm run dev &
+
       - name: Run tests
         run: npm run test:all
