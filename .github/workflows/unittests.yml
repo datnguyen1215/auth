@@ -28,6 +28,8 @@ jobs:
           --health-retries 5
     env:
       DB_CONNECTION_STRING: postgres://testuser:testpassword@localhost:5432/testdb
+      HTTP_PORT: 3000
+      PASSWORD_SALT_ROUNDS: 10
 
     strategy:
       matrix:
