@@ -23,6 +23,10 @@ app.use((err, _req, res, _next) => {
     .json({ error: { code: err.code, message: err.message } });
 });
 
+/**
+ * Start the HTTP server.
+ * @returns {Promise<void>}
+ */
 const start = () => {
   return new Promise(async (resolve, reject) => {
     const config = await settings.get();
@@ -38,6 +42,10 @@ const start = () => {
   });
 };
 
+/**
+ * Stop the HTTP server.
+ * @returns {Promise<void>}
+ */
 const stop = () => {
   return new Promise((resolve, reject) => {
     server.close(err => {
