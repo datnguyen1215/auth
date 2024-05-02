@@ -1,0 +1,1 @@
+INSERT INTO users (email, password, first_name, last_name, gender) VALUES ('login.test@local.com', '$2b$10$dh0dntdg6GcvjE02PcmIJuE1LPGBf1wN4dGfNQhvuHJVfJs/5JRc2', 'Test', 'User', 'male');

@@ -10,7 +10,7 @@ class CustomError extends Error {
  * Create error object with status, code, and message.
  * @param {object} param0
  * @param {number} param0.status
- * @param {number} param0.code
+ * @param {string} param0.code
  * @param {string} param0.message
  * @returns {CustomError}
  */

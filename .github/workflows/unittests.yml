@@ -49,7 +49,7 @@ jobs:
         run: npm ci
 
       - name: Setup database
-        run: npm run db:schema && npm run db:triggers
+        run: npm run db:schema && npm run db:triggers && npm run db:seeds
 
       - name: Run server
         run: npm run dev &
