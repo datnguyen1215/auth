@@ -57,6 +57,7 @@ const insert = async user => {
     ];
 
     const { rows } = await db.query(query, params);
+    console.log(rows);
     return { ...rows[0], password: undefined };
   } catch (error) {
     if (Object.values(errors.codes).includes(error.code)) throw error;

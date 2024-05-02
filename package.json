@@ -9,6 +9,7 @@
     "db:schema": "psql -f scripts/schema.sql $DB_CONNECTION_STRING",
     "db:triggers": "psql -f scripts/triggers.sql $DB_CONNECTION_STRING",
     "db:cleanup": "psql -f scripts/cleanup.sql $DB_CONNECTION_STRING",
+    "db:seeds": "psql -f scripts/seeds.sql $DB_CONNECTION_STRING",
     "test": "mocha --require @babel/register --require src/alias.js --require dotenv/config --exit",
     "test:all": "npm run test -- tests/**/*.test.js"
   },
@@ -36,6 +37,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "module-alias": "^2.2.3",
-    "pg": "^8.11.5"
+    "pg": "^8.11.5",
+    "pg-format": "^1.0.4"
   }
 }

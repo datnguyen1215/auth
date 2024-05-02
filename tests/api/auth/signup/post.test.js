@@ -13,7 +13,7 @@ const DEFAULT_USER = {
   password: 'password',
   first_name: 'John',
   last_name: 'Doe',
-  email: 'test@local.com'
+  email: 'signup.test@local.com'
 };
 
 describe(`POST ${apiPath}`, () => {

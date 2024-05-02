@@ -9,7 +9,7 @@ const server = http.createServer(app);
 app.use(express.json());
 
 app.use('*', (req, _, next) => {
-  console.log(`${req.method} ${req.originalUrl}`);
+  console.log(`${req.method} ${req.originalUrl} ${JSON.stringify(req.body)}`);
   next();
 });
 
